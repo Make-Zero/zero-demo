@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #lunbo{
+            border: 1px solid #000;
+            margin:50px auto;
+        }
+        .leftBtn{
+            position: absolute;
+            top:50%;
+            width: 30px;
+            height:30px;
+            margin-top: -15px;
+            left:10px;
+            background:orange;
+        }
+        .rightBtn{
+            position: absolute;
+            top:50%;
+            width: 30px;
+            height:30px;
+            margin-top: -15px;
+            right:10px;
+            background:orange;
+        }
+        img{
+            width: 640px;
+            height:360px;
+        }
+        .circle{
+            position: absolute;
+            bottom:10px;
+            list-style: none;
+
+        }
+        .circle li{
+            float: left;
+            width: 20px;
+            height:20px;
+            background:skyblue;
+            margin-right: 10px;
+            cursor: pointer;
+            z-index:999;
+        }
+        .circle li.cur{
+            background:lightsalmon;
+        }
+    </style>
+</head>
+<body>
+    <div id="lunbo"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/Carousel.js"></script>
+<script type="text/javascript">
+   new Carousel({
+        "id":"lunbo",
+        images:[
+            'images/img (1).jpg',
+            'images/img (2).jpg',
+            'images/img (3).jpg',
+            'images/img (4).jpg',
+            'images/img (5).jpg',
+            'images/img (6).jpg',
+            'images/img (7).jpg',
+            'images/img (8).jpg'
+        ],
+        "width":640,
+        "height":360,
+        "animateDuration":300,
+        "interval":1000
+   })
+</script>
