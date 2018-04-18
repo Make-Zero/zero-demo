@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            margin:100px auto;
+            background:rgba(0, 0, 0, 0.1);
+        }
+        table,tr,td{
+            border: 1px solid #111;
+            border-collapse:collapse;
+        }
+        td{
+            width: 18px;
+            height: 18px;
+        }
+        .L{
+            background: linear-gradient(to bottom right, #00b09b, #96c93d);
+        }
+        .I{
+            background: linear-gradient(to bottom right, #cac531, #f3f9a7);
+        }
+        .T{
+            background: linear-gradient(to bottom right, #800080, #ffc0cb);
+        }
+        .J{
+            background: linear-gradient(to bottom right, #00f260, #0575e6);
+        }
+        .O{
+            background: linear-gradient(to bottom right, #fc4a1a, #f7b733);
+        }
+        .S{
+            background: linear-gradient(to bottom right, #e1eec3, #f05053);
+        }
+        .Z{
+            background: linear-gradient(to bottom right, #74ebd5, #acb6e5);
+        }
+        .lightseagreen{
+            background:lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    <audio  src="audio/五月天.mp3" autoplay="autoplay" loop></audio>
+    <audio  src="audio/一键到底.wav" id="doDown" ></audio>
+    <audio  src="audio/旋转.wav" id="rotate"></audio>
+    <audio  src="audio/消行.wav" id="remove" ></audio>
+    <audio  src="audio/移动.wav" id="move"></audio>
+    <h1></h1>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="js/black_json.js"></script>
+<script type="text/javascript" src="js/Game.js"></script>
+<script type="text/javascript" src="js/Block.js"></script>
+<script type="text/javascript" src="js/Map.js"></script>
+<script type="text/javascript">
+    var game = new Game();
+</script>
