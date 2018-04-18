@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+     *{
+        margin: 0;
+        padding: 0;
+     }
+     p{
+         position: absolute;
+         background: white;
+         border-radius: 50%;
+     }
+     body{
+        background: black;
+     }
+    </style>
+    <script type="text/javascript" src="./js/underscore.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+    function Ballon(x,y) {
+        //属性的罗列
+        this.dom = null;
+        //半径
+        this.r = 20;
+        //圆心点的位置
+        this.x = x;
+        this.y = y;
+        this.color = ["#CAE1FF","#C0FF3E","#B03060","#66CD00","#EEEE00","#F08080"];
+        //初始化函数
+        //添加x方向的与y方向的力
+        do{
+             this.dx = _.random(-5,5);
+             this.dy = _.random(-5,5);
+        }while(this.dx==0&&this.dy==0);
+        //初始化的函数
+        this.init();
+        //更新的函数
+        this.update();
+        //将小球添加到数组里面
+        ballArr.push(this);
+    }
+    //初始化函数
+    Ballon.prototype.init = function (argument) {
+         this.dom = document.createElement("p");
+         //设置小球的宽度与高度
+         this.dom.style.width =2*this.r+"px";
+         this.dom.style.height = 2*this.r+"px";
+         //上树
+         document.body.appendChild(this.dom);
+    }
+    //更新的方法
+    Ballon.prototype.update = function (argument) {
+          //这些数据应该反映在dom的身上
+           this.x +=this.dx;
+           this.y+=this.dy;
+           //半径在减小
+           this.r -=0.5;
+           //当半径小于3的时候，我要将他们从节点树上移除掉
+           if (this.r<3) {
+             this.goDie();
+           }
+           this.dom.style.left = this.x+Math.sin(frame)+"px";
+           this.dom.style.top  = this.y+Math.cos(frame)+"px";
+           this.dom.style.width =2*this.r+"px";
+           this.dom.style.height = 2*this.r+"px";
+           this.dom.style.background = this.color[_.random(0,this.color.length)];
+    }
+    Ballon.prototype.goDie = function (argument) {
+        document.body.removeChild(this.dom);
+        //数组当中也要删除
+        for(var i = 0; i<ballArr.length;i++){
+             if (ballArr[i]===this) {
+                ballArr.splice(i,1);
+             }
+        }
+
+    }
+     var ballArr = [];
+     document.onmousemove = function (event) {
+         new Ballon(event.clientX,event.clientY);
+     }
+     var frame = 0;
+     //开启定时器遍历数组当中的每一个小球，让小球更新
+     setInterval(function (argument) {
+         frame++;
+        _.each(ballArr,function (b) {
+            b&&b.update();
+        })
+     },50);
+    </script>
+</body>
+</html>

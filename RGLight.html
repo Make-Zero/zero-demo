@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+            position: relative;
+            width:100px;
+            height: 279px;
+            background:url("./star/deng.jpg");
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
+<script type="text/javascript">
+      function Deng () {
+          //给实例添加一个dom属性，将来这个属性的v是一个div元素对象
+          this.dom = null;
+          //信号量属性
+          this.singal = 0;
+          //初始化函数:init代表的含义是是将对象的属性的属性值初始化
+          this.init();
+          //监听事件
+          this.bindEvent();
+      }
+      //初始化方法
+      Deng.prototype.init = function  (argument) {
+         //初始化dom属性值
+         this.dom = document.createElement("div");
+         document.body.appendChild(this.dom);
+      }
+      //监听事件
+      Deng.prototype.bindEvent = function  (argument) {
+        //添加点击事件
+        //备份
+        var self = this;
+        this.dom.onclick = function  (argument) {
+             self.singal++;
+             self.singal = self.singal>2?0:self.singal;
+             self.dom.style.backgroundPosition = - self.singal *  100+"px 0px";
+        }
+      }
+     new Deng();
+     new Deng();
+</script>

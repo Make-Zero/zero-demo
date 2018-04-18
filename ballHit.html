@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+       *{
+            margin:0;
+            padding: 0;
+        }
+        .box{
+             position: relative;
+             width:400px;
+             height: 400px;
+             margin:0 auto;
+             border:1px solid black;
+             box-shadow:3px 3px 100px #888888;
+        }
+        p{
+             position: absolute;
+            background:pink;
+            border-radius:50%;
+        }
+        body{
+            background:black;
+        }
+    </style>
+    <script type="text/javascript" src="./js/underscore.js"></script>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>
+<script type="text/javascript">
+    function Ballon () {
+        //属性罗列
+        this.dom = null;
+        //半径的设置
+        this.r = _.random(60,150);
+        //圆心点
+        this.x = _.random(this.r,400-this.r);
+        this.y = _.random(this.r,400-this.r);
+        //求的颜色属性
+        this.color = ["#DA70D6","#B0E0E6","#A0522D","#A52A2A","#76EE00","#458B00"];
+        //改变水平的距离和垂直距离的属性：且不能同时为零
+         do{
+          this.idx = _.random(5,-5);
+          this.idy = _.random(5,-5);
+         }while(this.idx==0&&this.idy==0);
+        //初始化函数
+        this.init();
+    }
+    //原型对象:初始化方法
+    Ballon.prototype.init = function  (argument) {
+         this.dom = document.createElement("p");
+         //小球的宽度、高度
+         this.dom.style.width = 2 * this.r+"px";
+         this.dom.style.height = 2 * this.r+"px";
+         this.dom.style.left = this.x -this.r+"px";
+         this.dom.style.top = this.y  - this.r+"px";
+         //上树
+         document.querySelector(".box").appendChild(this.dom);
+    }
+    //原型对象：添加一个移动的方法
+    Ballon.prototype.move = function  (argument) {
+          //边界的判断条件
+          //水平的判断条件
+          if(this.x+this.r>400) {
+            this.idx = -this.idx;
+            this.r-=5;
+            this.dom.style.background = this.color[_.random(0,this.color.length)];
+         }
+          if(this.x-this.r<0)  {
+            this.r-=5;
+            this.idx = -this.idx;
+            this.dom.style.background = this.color[_.random(0,this.color.length)];
+         }
+         //垂直方向的判断条件
+          if(this.y+this.r>400){
+            this.r-=5;
+           this.idy = -this.idy;
+           this.dom.style.background = this.color[_.random(0,this.color.length)];
+          }
+
+          if(this.y-this.r<0)  {
+            this.r-=5;
+            this.idy = -this.idy;
+            this.dom.style.background = this.color[_.random(0,this.color.length)];
+         }
+           //改变圆心点的位置
+           this.x +=this.idx;
+           this.y+=this.idy;
+           //宽度和高度发生变化
+           this.dom.style.width = 2 * this.r+"px";
+           this.dom.style.height = 2 * this.r+"px";
+           this.dom.style.left =  this.x -this.r+"px";
+           this.dom.style.top =  this.y -this.r+"px";
+    }
+
+    var b = new Ballon();
+
+    setInterval(function  (argument) {
+        b.move();
+    },20)
+</script>

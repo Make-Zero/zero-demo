@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+      <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        div{
+             position: absolute;
+             width:79px;
+             height: 108px;
+             background:url("./star/aisidier.png") 0px -216px;
+        }
+        hr{
+             position: absolute;
+             left:1000px;
+             top:0px;
+             width:1px;
+             height: 700px;
+             background:red;
+        }
+    </style>
+    <script type="text/javascript" src="./js/underscore.js"></script>
+</head>
+<body>
+    <hr />
+</body>
+</html>
+<script type="text/javascript">
+    //小女孩类
+    function Girl () {
+         //DOM属性
+         this.dom = null;
+         //改变小女孩的脚步的属性（定位图）
+         this.step = 0;
+         //随机一个TOP数值
+         this.y = _.random(0,document.documentElement.clientHeight-108);
+         //改变DOMleft的数据
+         this.x = 0;
+         //初始化的时候恒定的速度
+         this.speed = _.random(0,10);
+         //初始化一个判断小女孩是否行走
+         this.isMove=true;
+         //调用初始化函数
+         this.init();
+         //监听事件
+         this.bindEvent();
+         //将实例添加到数组当中
+         girlArr.push(this);
+
+    }
+    //原型对象添加init方法
+    Girl.prototype.init = function  (argument) {
+        //初始化DOM属性值
+       this.dom =document.createElement("div");
+       this.dom.style.top = this.y+"px";
+       document.body.appendChild(this.dom);
+
+    }
+    //小女孩移动的方法（脚步、水平）
+     Girl.prototype.move = function  (argument) {
+          if(!this.isMove) return;
+           if(this.x>1000){
+              //节点书上移除DOM
+             document.body.removeChild(this.dom);
+             //数组也需要删除这个实例
+             for(var i = 0;i<girlArr.length;i++){
+                 if(girlArr[i]===this){
+                    girlArr.splice(i,1);
+                 }
+             }
+           }
+        //脚步进行累加
+          this.step++;
+          this.x+=this.speed;
+          this.step = this.step>7?0:this.step;
+          //将数据反映到DOM身上
+          this.dom.style.backgroundPosition = -this.step *79 +"px -216px";
+          this.dom.style.left = this.x+"px";
+
+    }
+    //监听事件
+    Girl.prototype.bindEvent= function  (argument) {
+        var self  = this;
+        self.dom.onclick = function  (argument) {
+             self.isMove = !self.isMove;
+        }
+    }
+    //数组装载每一个实例
+    var girlArr = [];
+    var idx = 0;
+    //公用的定时器
+    setInterval(function  (argument) {
+          idx++;
+          idx%10==0&&new Girl();
+         //遍历数据枚举出每一个实例：调用移动方法
+         for(var i = 0 ; i <girlArr.length;i++){
+              girlArr[i]&&girlArr[i].move();
+         }
+    },100);
+</script>

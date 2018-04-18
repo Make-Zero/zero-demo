@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding: 0;
+        }
+        body{
+            background:black;
+        }
+        div{
+             position: absolute;
+              width:231.25px;
+             height: 300.7px;
+            background:url("./star/balloon.png");
+            cursor:pointer;
+        }
+        span{
+             color:white;
+        }
+    </style>
+    <script type="text/javascript" src="./js/underscore.js"></script>
+</head>
+<body>
+    <span>你的分数:<b>0</b></span>
+</body>
+</html>
+<script type="text/javascript">
+      //总分数
+      var score = 0;
+      //总时间
+      var allTime = 20;
+     //球类
+     function Ballon () {
+         //属性的罗列
+         //元素的属性
+         this.dom = null;
+         //水平的距离
+         this.x = _.random(0,document.documentElement.clientWidth-231.25);
+         //垂直距离
+         this.y =document.documentElement.clientHeight;
+         //分数的属性
+         this.score = _.random(1,12);
+         //初始化函数
+         this.init();
+         //监听事件
+         this.bindEvent();
+         arr.push(this);
+     }
+     //原型对象的初始化方法
+     Ballon.prototype.init = function  (argument) {
+         //初始化元素
+         this.dom = document.createElement("div");
+         //改变lefy和top数据
+         this.dom.style.left = this.x+"px";
+         this.dom.style.top =this.y+"px";
+         //改变背景图的定位
+         var cutX = (this.score - 1)%4;
+         var cutY = parseInt((this.score - 1)/4);
+         this.dom.style.backgroundPosition = -cutX *231.25+"px -"+cutY * 300.7+"px"
+         document.body.appendChild(this.dom);
+     }
+     //原型对象添加移动的方法
+     Ballon.prototype.update = function  (argument) {
+         this.y -=this.score;
+         this.dom.style.top =this.y+"px";
+     }
+     //原型对象:监听事件
+      Ballon.prototype.bindEvent = function  (argument) {
+          var self = this;
+          this.dom.onclick = function  (argument) {
+               score +=self.score;
+              //节点树上移除DOM
+              document.body.removeChild(self.dom);
+               for(var i = 0;i<arr.length;i++){
+                 if(arr[i]===self){
+                     arr.splice(i,1);
+                 }
+             }
+          }
+      }
+     //开启定时器
+     var idx = 0;
+     var arr = [];
+     var b = document.querySelector("b");
+     var timer = setInterval(function  (argument) {
+         //信号量
+          idx++;
+          idx%100==0&&allTime--;
+          if(allTime==0) clearInterval(timer);
+          //分数的设置
+          b.innerHTML  = score;
+         //每隔200毫秒创建一个实例
+         idx%20==0&&new Ballon();
+         //遍历每一个实例：调用update方法
+        _.each(arr,function  (b) {
+              b&&b.update();
+        })
+     },10);
+
+</script>
