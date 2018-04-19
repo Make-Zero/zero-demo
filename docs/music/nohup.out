@@ -1,0 +1,73 @@
+[33mStarting up http-server, serving [39m[36m./[39m[33m
+Available on:[39m
+[32m  http://127.0.0.1:8000[39m
+[32m  http://172.18.0.182:8000[39m
+Hit CTRL-C to stop the server
+[Thu Apr 13 2017 10:40:15 GMT+0800 (CST)] "[36mGET[39m [36m/[39m" "undefined"
+[33mStarting up http-server, serving [39m[36m./[39m[33m
+Available on:[39m
+[32m  http://127.0.0.1:8000[39m
+[32m  http://172.18.0.182:8000[39m
+Hit CTRL-C to stop the server
+[33mStarting up http-server, serving [39m[36m./[39m[33m
+Available on:[39m
+[32m  http://127.0.0.1:8080[39m
+[32m  http://172.18.0.182:8080[39m
+Hit CTRL-C to stop the server
+[Tue May 16 2017 11:04:56 GMT+0800 (CST)] "[36mGET[39m [36m/[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:56 GMT+0800 (CST)] "[36mGET[39m [36m/css/player.css[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:56 GMT+0800 (CST)] "[36mGET[39m [36m/js/jquery-1.10.2.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:56 GMT+0800 (CST)] "[36mGET[39m [36m/js/jquery-ui.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:56 GMT+0800 (CST)] "[36mGET[39m [36m/js/player.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:56 GMT+0800 (CST)] "[36mGET[39m [36m/js/canvas.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:56 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[36mGET[39m [36m/images/bg.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[36mGET[39m [36m/images/search.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[36mGET[39m [36m/images/sbtn.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[36mGET[39m [36m/images/icons.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[36mGET[39m [36m/images/pro.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[36mGET[39m [36m/images/toolbarBtn.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[36mGET[39m [36m/favicon.ico[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:57 GMT+0800 (CST)] "[31mGET[39m [31m/favicon.ico[39m" Error ([31m404[39m): "[31mNot found[39m"
+[Tue May 16 2017 11:04:58 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494903883194[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:04:59 GMT+0800 (CST)] "[36mGET[39m [36m/images/play.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:05:00 GMT+0800 (CST)] "[36mGET[39m [36m/images/manyou.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:05:00 GMT+0800 (CST)] "[36mGET[39m [36m/images/wave.gif[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:05:00 GMT+0800 (CST)] "[36mGET[39m [36m/images/nowplaying.gif[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:05:14 GMT+0800 (CST)] "[36mGET[39m [36m/images/pause.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[33mStarting up http-server, serving [39m[36m./[39m[33m
+Available on:[39m
+[32m  http://127.0.0.1:8000[39m
+[32m  http://172.18.0.182:8000[39m
+Hit CTRL-C to stop the server
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/css/player.css[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/js/jquery-1.10.2.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/js/jquery-ui.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/js/canvas.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/js/player.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/images/search.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/images/bg.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/images/sbtn.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/images/icons.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/images/toolbarBtn.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/images/pro.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[36mGET[39m [36m/favicon.ico[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:37 GMT+0800 (CST)] "[31mGET[39m [31m/favicon.ico[39m" Error ([31m404[39m): "[31mNot found[39m"
+[Tue May 16 2017 11:06:38 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494903983777[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:39 GMT+0800 (CST)] "[36mGET[39m [36m/images/play.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:41 GMT+0800 (CST)] "[36mGET[39m [36m/images/manyou.png[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:41 GMT+0800 (CST)] "[36mGET[39m [36m/images/nowplaying.gif[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:06:41 GMT+0800 (CST)] "[36mGET[39m [36m/images/wave.gif[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:07:32 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494904037604[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:07:44 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494904049568[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[33mStarting up http-server, serving [39m[36m./[39m[33m
+Available on:[39m
+[32m  http://127.0.0.1:8000[39m
+[32m  http://172.18.0.182:8000[39m
+Hit CTRL-C to stop the server
+[Tue May 16 2017 11:09:20 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494904145493[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:09:38 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494904154693[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:09:44 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494904154696[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+[Tue May 16 2017 11:10:06 GMT+0800 (CST)] "[36mGET[39m [36m/js/ajaxList.js?_=1494904154704[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"

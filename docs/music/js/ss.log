@@ -1,0 +1,8 @@
+[33mStarting up http-server, serving [39m[36m./[39m[33m
+Available on:[39m
+[32m  http://127.0.0.1:80[39m
+[32m  http://172.18.0.182:80[39m
+Hit CTRL-C to stop the server
+[Tue Nov 29 2016 11:50:15 GMT+0800 (CST)] "[36mGET[39m [36m/[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+[Tue Nov 29 2016 11:50:18 GMT+0800 (CST)] "[36mGET[39m [36m/[39m" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.116 Safari/537.36"
+[31mhttp-server stopped.[39m

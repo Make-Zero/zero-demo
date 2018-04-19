@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="Keywords" content="音乐可视化,webAudio,passion,passionate,music,音乐,HTML5,canvas,CSS3,自适应"> 
+    <meta name="Description" content="利用HTML5 webAudio API 和canvas API以及CSS3制作成的自适应的音乐可视化应用">
+    <meta name="Author" content="Doving">
+    <meta name="Robots" content= "all">
+    <title>ss</title>
+    <style>
+      html,body,div,header,h1,h2,footer,p,ul,li,span,a,dl,dt,dd,section,canvas,input,button,form,textarea,select{margin:0;padding:0;list-style:none;color:#fff;box-sizing:border-box}a{text-decoration:none}input[type='range']{-webkit-appearance:none;background-color:gray;height:8px;border-radius:15px;outline:none}input[type='range']::-webkit-slider-thumb{-webkit-appearance:none;height:12px;width:12px;background:#ddd;border-radius:100%;border:none}input[type='range']::-moz-range-track{height:8px;background:gray;border-radius:15px;border:none}input[type='range']::-moz-range-thumb{height:12px;width:12px;background:#ddd;border:none;border-radius:100%}input.range::-webkit-slider-thumb{height:18px;width:18px}input.range::-moz-range-thumb{height:18px;width:18px}html,body{height:100%;overflow:hidden}body{position:relative;text-align:center;background:#000;font:16px "微软雅黑",Georgia,Serif}@media screen and (max-height:450px){body{font-size:12px}}@media screen and (max-width:500px){body{font-size:12px}}.media-header-fork{transform:scale(.6);-ms-transform:scale(.6);-moz-transform:scale(.6);-webkit-transform:scale(.6);-o-transform:scale(.6);top:-30px;right:-30px}header{height:120px}header h1{height:70px;line-height:50px;font-size:50px;padding-top:20px;margin-bottom:20px}@media screen and (max-height:450px){header{height:80px}header h1{height:30px;line-height:22px;font-size:26px;padding-top:8px;margin-bottom:10px}}@media screen and (max-width:500px){header{height:80px}header h1{height:30px;line-height:22px;font-size:26px;padding-top:8px;margin-bottom:10px}}header .type{display:inline-block;margin:0 auto}header .type:after{display:block;content:"";clear:both}header .type li{float:left;height:30px;line-height:30px;width:80px;border-top:solid 1px #fff;border-right:solid 1px #fff;border-bottom:solid 1px #fff;cursor:pointer}@media screen and (max-height:450px){header .type li{height:20px;line-height:20px;width:50px}}@media screen and (max-width:500px){header .type li{height:20px;line-height:20px;width:50px}}header .type li:first-child{border-left:solid 1px #fff;border-top-left-radius:5px;border-bottom-left-radius:5px}header .type li:last-child{border-top-right-radius:5px;border-bottom-right-radius:5px}header .type li.selected{background:#fff;color:#000}header .fork{position:absolute;z-index:1;top:0;right:0;font-size:16px;height:144px;width:144px;overflow:hidden}header .fork .border{height:32px;padding:2px 0;width:216px;background:orange;margin:46.15384615px 0 0 -20.68965517px;transform:rotate(46deg);-ms-transform:rotate(46deg);-moz-transform:rotate(46deg);-webkit-transform:rotate(46deg);-o-transform:rotate(46deg)}header .fork .border a{display:block;text-align:center;height:28px;line-height:28px;border:dashed 1px #000}@media screen and (max-height:450px){header .fork{transform:scale(.6);-ms-transform:scale(.6);-moz-transform:scale(.6);-webkit-transform:scale(.6);-o-transform:scale(.6);top:-30px;right:-30px}}@media screen and (max-width:500px){header .fork{transform:scale(.6);-ms-transform:scale(.6);-moz-transform:scale(.6);-webkit-transform:scale(.6);-o-transform:scale(.6);top:-30px;right:-30px}}.list,.canvas{position:absolute;top:150px;bottom:0}@media screen and (max-height:450px),screen and (max-width:500px){.list,.canvas{top:80px}}.list{left:20px;width:15%;overflow:hidden;bottom:10px}.list .music-add{width:100%;height:30px;line-height:30px;border:solid 2px #fff;background:#000;cursor:pointer;overflow:hidden}.list .music-list{position:absolute;left:0;right:0;top:40px;bottom:0;overflow:auto;border:solid #fff 1px}.list .music-list li{height:30px;line-height:30px;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.list .music-list li.play{color:green}.list .upload{display:none}.canvas{left:0;top:0;right:0;z-index:-1}@keyframes loading{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}50%{transform:scale(2.2);-webkit-transform:scale(2.2);-moz-transform:scale(2.2);-o-transform:scale(2.2)}100%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}}@-moz-keyframes loading{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}50%{transform:scale(2.2);-webkit-transform:scale(2.2);-moz-transform:scale(2.2);-o-transform:scale(2.2)}100%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}}@-o-keyframes loading{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}50%{transform:scale(2.2);-webkit-transform:scale(2.2);-moz-transform:scale(2.2);-o-transform:scale(2.2)}100%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}}@-webkit-keyframes loading{0%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}50%{transform:scale(2.2);-webkit-transform:scale(2.2);-moz-transform:scale(2.2);-o-transform:scale(2.2)}100%{transform:scale(1);-webkit-transform:scale(1);-moz-transform:scale(1);-o-transform:scale(1)}}.loading-box{display:none;position:absolute;top:0;left:0;height:100%;width:100%;line-height:100%;font-size:30px;background:rgba(255,255,255,0.4)}.loading-box ul{position:absolute;top:50%;left:50%;margin-top:-16px;margin-left:-80px}.loading-box ul:after{display:block;content:"";clear:both}.loading-box ul li{float:left;height:14px;width:14px;background:green;margin:10px;border-radius:100%}.loading-box ul li.l{animation:loading 1.4s linear 0s infinite alternate;-moz-animation:loading 1.4s linear 0s infinite alternate;-webkit-animation:loading 1.4s linear 0s infinite alternate;-o-animation:loading 1.4s linear 0s infinite alternate}.loading-box ul li.o{animation:loading 1.4s linear .2s infinite alternate;-moz-animation:loading 1.4s linear .2s infinite alternate;-webkit-animation:loading 1.4s linear .2s infinite alternate;-o-animation:loading 1.4s linear .2s infinite alternate}.loading-box ul li.a{animation:loading 1.4s linear .4s infinite alternate;-moz-animation:loading 1.4s linear .4s infinite alternate;-webkit-animation:loading 1.4s linear .4s infinite alternate;-o-animation:loading 1.4s linear .4s infinite alternate}.loading-box ul li.d{animation:loading 1.4s linear .6s infinite alternate;-moz-animation:loading 1.4s linear .6s infinite alternate;-webkit-animation:loading 1.4s linear .6s infinite alternate;-o-animation:loading 1.4s linear .6s infinite alternate}.loading-box ul li.i{animation:loading 1.4s linear .8s infinite alternate;-moz-animation:loading 1.4s linear .8s infinite alternate;-webkit-animation:loading 1.4s linear .8s infinite alternate;-o-animation:loading 1.4s linear .8s infinite alternate}.loading-box .play{display:none;position:absolute;top:50%;left:50%;margin-top:-32px;margin-left:-32px;height:62px;width:62px;font-size:16px;font-weight:bold;line-height:60px;background:green;border:solid 2px #fff;border-radius:100%;cursor:pointer}
+    </style>
+  </head>
+  <body>
+  	<header>
+  		<h1>Passionate Music</h1><h2><a href="http://112.74.53.167:8000/">返回首页</a></h2>
+      <ul class="type">
+        <li class="selected">Dot</li>
+        <li>Column</li>
+      </ul>
+      <p>Volume <input id="volume" type="range" min="0" max="100" value="60"></p>
+      </header>  	
+       <div class="list" id="list">
+
+      <ul class="music-list" id="music-list">
+      
+        <li title="徐良&amp;孙羽幽-虐心.mp3">徐良&amp;孙羽幽-虐心.mp3</li>
+        
+        <li title="徐良&amp;小凌-客官不可以.mp3">徐良&amp;小凌-客官不可以.mp3</li>
+        
+        <li title="徐良&amp;小凌-无颜女.mp3">徐良&amp;小凌-无颜女.mp3</li>
+        
+        <li title="徐良&amp;李晟-I Will Be OK.mp3">徐良&amp;李晟-I Will Be OK.mp3</li>
+        
+        <li title="徐良&amp;阿悄-红妆.mp3">徐良&amp;阿悄-红妆.mp3</li>
+        
+        <li title="徐良-后会无期.mp3">徐良-后会无期.mp3</li>
+        
+        <li title="徐良-坏女孩.mp3">徐良-坏女孩.mp3</li>
+        
+        <li title="徐良-那时雨.mp3">徐良-那时雨.mp3</li>  
+        <audio id="qiuyemp3" crossOrigin="anonymous" src="http://m2.music.126.net/fVlwlAnEdhPvzVvdy277bw==/3340316325239022.mp3" autoplay="autoplay"></audio>
+      </ul>
+    </div>
+    <div class="canvas" id="canvas">
+    </div>
+    <div class="loading-box" id="loading-box">
+      <ul id="loading">
+        <li class='l'></li>
+        <li class='o'></li>
+        <li class='a'></li>
+        <li class='d'></li>
+        <li class='i'></li>
+      </ul>
+      <div class="play" id="play">PLAY</div>
+    </div>
+
+
+    <script>
+function MusicVisualizer(options){
+  //播放过的bufferSource的对象
+  this.buffer = {};
+
+  //当前正在播放的bufferSource
+  this.source = null;
+
+  //通过audio标签创建MediaaudioElementSourceNode时使用的audio元素
+  this.audio = new Audio();
+  this.audioSource = MusicVisualizer.ac.createMediaElementSource(this.audio);
+
+  //选择过的资源数的累计值
+  this.count = 0;
+
+  //播完后的回调
+  this.onended = options.onended;
+
+  //unit8Array的长度
+  this.size = options.size || 32;
+
+  //可视化调用的绘图函数
+  this.visualizer = options.visualizer;
+
+  //初次加载第一首音乐成功时回调函数，针对苹果禁止自动播放用
+  this.initCallback = null;
+
+  //控制音量的GainNode
+  this.gainNode = MusicVisualizer.ac[MusicVisualizer.ac.createGain ? "createGain" : "createGainNode"]();
+
+  //音频分析对象
+  this.analyser = MusicVisualizer.ac.createAnalyser();
+
+  //延迟对象
+  this.delayNode = MusicVisualizer.ac.createDelay(179);
+
+  typeof options.delay === 'number' && (this.delayNode.delayTime.value = options.delay);
+  //this.delayNode.delayTime.value = 5;
+
+  this.analyser.connect(this.delayNode);
+
+  this.delayNode.connect(this.gainNode);
+
+  this.gainNode.connect(MusicVisualizer.ac.destination);
+
+  //xhr对象
+  this.xhr = new window.XMLHttpRequest();
+
+  MusicVisualizer.visualize(this);
+}
+
+MusicVisualizer.ac = new (window.AudioContext ||window.webkitAudioContext || window.mozAudioContext)();
+
+//检测是否为function
+MusicVisualizer.isFunction = function(fun){
+  return Object.prototype.toString.call(fun) == "[object Function]";
+}
+
+/*从指定的路径加载音频资源
+ *@param xhr XMLHttpRequest
+ *@param path string,音频资源路径
+ *@param fun function,decode成功后的回调函数，将arraybuffer作为this
+*/
+MusicVisualizer.load = function(xhr, path, fun){
+  xhr.abort();
+  xhr.open("GET", path, true);
+  xhr.responseType = "arraybuffer";
+
+  xhr.onload = function(){
+    MusicVisualizer.isFunction(fun) && fun.call(xhr.response);
+  }
+  xhr.send();
+}
+
+//播放mv对象的source,mv.onended为播放结束后的回调
+MusicVisualizer.play = function(mv){
+
+  mv.source.connect(mv.analyser);
+
+  if(mv.source === mv.audioSource){
+    mv.audio.play();
+    mv.audio.onended = mv.onended;
+  }else{    
+    //兼容较老的API
+    mv.source[mv.source.start ? "start" : "noteOn"](0);
+
+    //为该bufferSource绑定onended事件
+    MusicVisualizer.isFunction(mv.onended) && (mv.source.onended = mv.onended);
+  }
+  
+}
+
+//停止mv.source
+MusicVisualizer.stop = function(mv){
+  if(mv.source === mv.audioSource){
+    mv.audio.pause();
+    mv.audio.onended = window.undefined;
+  }else{
+    //兼容较老的API
+    mv.source[mv.source.stop ? "stop" : "noteOff"](0);
+
+    //停止后移除之前为mv.source绑定的onended事件
+    mv.source.onended = window.undefined;
+  } 
+}
+
+/*可视化当前正在播放的音频
+ *@param mv MusicVisualizer,MusicVisualizer的实例对象
+*/
+MusicVisualizer.visualize = function(mv){
+  mv.analyser.fftSize = mv.size * 2;
+  var arr = new Uint8Array(mv.analyser.frequencyBinCount);
+
+  var requestAnimationFrame = window.requestAnimationFrame || 
+                window.webkitRequestAnimationFrame || 
+                window.oRequestAnimationFrame || 
+                window.mzRequestAnimationFrame;
+  var oldav = 0;
+  function v(){
+    mv.analyser.getByteFrequencyData(arr);
+    var av = Math.round(100 * Array.prototype.reduce.call(arr, function(x, y){return x + y}) / mv.size / 256);
+    var dlav = av - oldav;
+    oldav = av;
+    //将分析得到的音频数据传递给mv.visualizer方法可视化
+    mv.visualizer.call(arr, dlav, av);
+    requestAnimationFrame(v);
+  }
+
+  MusicVisualizer.isFunction(mv.visualizer) && requestAnimationFrame(v);
+}
+
+//将arraybuffer数据decode得到buffer
+//成功后将bufferSourceNode作为fun回调的this
+MusicVisualizer.prototype.decode = function(arraybuffer, fun){
+  var self = this;
+  MusicVisualizer.ac.decodeAudioData(arraybuffer, function(buffer){
+    var bufferSourceNode = MusicVisualizer.ac.createBufferSource();
+    bufferSourceNode.buffer = buffer;
+    fun.call(bufferSourceNode);
+  },function(err){
+    console.log(err);
+  })
+}
+
+MusicVisualizer.prototype.play = function(path, isMobile/*是否移动设备*/){
+  var self = this;
+  var count = ++self.count;
+
+  //停止当前正在播放的bufferSource
+  self.source && MusicVisualizer.stop(self);
+
+  if(path instanceof ArrayBuffer){
+    self.decode(path, function(){
+      self.initCallback && !self.source && MusicVisualizer.isFunction(self.initCallback) && self.initCallback();
+      self.source = this;
+      MusicVisualizer.play(self);
+    });
+  }
+  if(typeof(path) === 'string'){
+
+    //pc上通过audio标签创建MediaaudioElementSourceNode，比ajax请求再解码要快
+    if(!isMobile){
+      //self.audio.src = path;
+      self.audio = new Audio(path);
+      self.audioSource = MusicVisualizer.ac.createMediaElementSource(self.audio);
+      //console.log(path);
+
+      self.initCallback && !self.source && MusicVisualizer.isFunction(self.initCallback) && self.initCallback();
+
+      self.source = self.audioSource;
+
+      MusicVisualizer.play(self);
+
+      return;
+    }
+    
+    //安卓iphone等移动设备上使用ajax请求arraybuffer再解码
+    //安卓iphone等移动设备上audio播放流似乎没被re-routed到audioContext中
+    if(path in self.buffer){
+      MusicVisualizer.stop(self.source);
+
+      var bufferSource = MusicVisualizer.ac.createBufferSource();
+      bufferSource.buffer = self.buffer[path];  
+      self.source = bufferSource;
+      MusicVisualizer.play(self);
+    }else{
+      MusicVisualizer.load(self.xhr, path, function(){
+
+        if(count != self.count)return;
+
+        self.decode(this, function(){
+
+          if(count != self.count)return;
+
+          //将decode好的buffer缓存起来
+          //self.buffer[path] = this.buffer;
+          
+          self.initCallback && !self.source && MusicVisualizer.isFunction(self.initCallback) && self.initCallback();
+          
+          self.source = this;
+
+          MusicVisualizer.play(self);
+        });
+      })
+    }
+  }
+}
+
+//直接播放当前的bufferSource，在苹果设备用户触发时调用
+MusicVisualizer.prototype.start = function(){
+  if(this.source === this.audioSource){
+    this.audio.play();
+  }else{
+    this.source && this.source[this.source.start ? "start" : "noteOn"](0);
+  } 
+}
+
+//应用加载完毕，为苹果设备添加用户触发的事件
+MusicVisualizer.prototype.addinit = function(fun){
+  this.initCallback = fun;
+}
+
+//音量调节
+MusicVisualizer.prototype.changeVolume = function(rate){
+  this.gainNode.gain.value = rate * rate;
+}
+
+    </script>
+    <script>
+!function(){
+  var $ = function(s){return document.querySelector(s);}
+  var box = $("#canvas");
+  var canvas = document.createElement("canvas");
+  var ctx = canvas.getContext("2d");
+
+  box.appendChild(canvas);
+  
+  var HEIGHT,//canvas高
+      WIDTH;//canvs 宽
+  
+  var SIZE = 32;//音乐片段数
+  
+  var ARR = [];//该数组保存canvas中各图形的x,y坐标以及他们的颜色
+  ARR.dotMode = "random";
+  var isMobile = false;
+  var isApple = false;
+  
+  !function(){
+    var u = window.navigator.userAgent;
+    var m = /(Android)|(iPhone)|(iPad)|(iPod)/i;
+    if(m.test(u)){
+      isMobile = true;
+    }
+    var ap = /(iPhone)|(iPad)|(iPod)|(Mac)/i;
+    if(ap.test(u)){
+      isApple = true;
+    }
+  }();
+  
+  //Android和苹果设备则设置音乐片段为16
+  isMobile && (SIZE = 16);
+  
+  //初始化heigth，width以及canvas的宽高
+  function init(){
+    HEIGHT = box.clientHeight,
+    WIDTH = box.clientWidth;
+    canvas.height = HEIGHT;
+    canvas.width = WIDTH;
+    ctx.globalCompositeOperation = "lighter";
+    ctx.lineWidth = (HEIGHT > WIDTH ? WIDTH : HEIGHT) / 30;
+    getArr();
+  }
+  
+  init();
+  /*
+   *  获取[min ,max]之间的随机数
+   *  若无参数则min = 0，max = 1
+   *  max < min 则返回 0
+  */
+  function random(min, max){
+    min = min || 0;
+    max = max || 1;
+    return max >= min ? Math.round(Math.random()*(max - min) + min) : 0;
+  }
+  
+  function getArr(){
+    //创建线性渐变对象，以便绘制柱状图使用
+    ARR.length = 0;
+    ARR.linearGradient = ctx.createLinearGradient(0, HEIGHT, 0, 0);
+    ARR.linearGradient.addColorStop(0, 'green');
+    ARR.linearGradient.addColorStop(0.5, '#ff0');
+    ARR.linearGradient.addColorStop(1, '#f00'); 
+  
+    for(var i = 0;i < SIZE; i++){
+      var x =  random(0, WIDTH),
+        y = random(0, HEIGHT),
+        color = 'rgba('+random(100, 250)+','+random(50, 250)+','+random(50, 100)+',0)',
+        ran = random(1, 8) * 0.2;
+      ARR.push({
+        x: x,
+        y: y,
+        color: color,
+        dx: ARR.dotMode == "random" ? ran : 0,
+        dx2: ran,
+        dy: random(1, 5),
+        cap: 0,
+        cheight : 10
+      });
+    }
+  }
+  
+  //窗口resize则重新计算heigth，width以及canvas的宽高
+  window.onresize = init;
+  
+  function Render(){  
+    var o = null; 
+    return function(del, ave){
+      ctx.fillStyle = ARR.linearGradient;
+      var w = Math.round(WIDTH / SIZE),
+      cgap = Math.round(w * 0.3);
+      cw = w - cgap;
+      ctx.clearRect(0, 0, WIDTH, HEIGHT);
+      if(Render.type == 'Dot' && ((del > 3 && ave > 30) || (ave > 50 && del > 0)) ){
+        var d = Math.round(del * (ave - 20) * 0.01)+4;
+        for(var i = 0; i < d; i++){
+          var y = random(-HEIGHT * 2, 3*HEIGHT);
+          ctx.beginPath();
+          ctx.moveTo(0, y);   
+          ctx.lineTo(WIDTH, HEIGHT - y);
+          ctx.strokeStyle = 'rgb('+random(100, 250)+','+random(50, 250)+','+random(50, 100)+')';
+          ctx.stroke();
+        }
+        //if(del > 3){alert(del + ' == ' + ave)}
+        //$('.type .selected').innerHTML = del + '=' + ave;
+      }
+      for(var i = 0; i < SIZE; i++){    
+        o = ARR[i];
+        if(Render.type == 'Dot'){
+          //ctx.strokeStyle = ARR[i].color.replace(",0",","+this[i]/270);
+          var x = o.x,
+          y = o.y,
+          r = Math.round((this[i]/2+18)*(HEIGHT > WIDTH ? WIDTH : HEIGHT)/(isMobile ? 450 : 600));
+          o.x += o.dx;
+          //o.x += 2;
+          o.x > WIDTH && (o.x = 0);
+  
+          //开始路径，绘画圆
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2, true);
+            var gradient = ctx.createRadialGradient(x, y, 0, x, y, r);
+            gradient.addColorStop(0, "rgb(255,255,255)");
+  
+            //var per = this[i]/(isMobile ? 160 : 250);
+            //per = per > 1 ? 1 : per;
+  
+            //gradient.addColorStop(per, o.color.replace("opacity",1-this[i]/(isMobile ? 160 : 220)));
+            gradient.addColorStop(1, o.color);
+            /*for(var j = 0, l = Math.round(this[i]/10); j < l; j++){
+              //ctx.beginPath();
+              ctx.moveTo(x ,y);
+              ctx.quadraticCurveTo(x+random(-30, 30), y+random(-30, 30), random(x + 100), random(y + 100));           
+            }
+            //ctx.stroke();*/
+            ctx.fillStyle = gradient;
+            ctx.fill();         
+        }
+        if(Render.type == 'Column'){
+          var h = this[i] / 280 * HEIGHT;
+          ARR[i].cheight > cw && (ARR[i].cheight = cw);
+          if(--ARR[i].cap < ARR[i].cheight){
+            ARR[i].cap = ARR[i].cheight;
+          };
+          if(h > 0 && (ARR[i].cap < h + 40)){
+            ARR[i].cap = h + 40 > HEIGHT ? HEIGHT : h + 40;
+          }
+          //console.log(ARR[i].cap);
+          ctx.fillRect(w * i, HEIGHT - ARR[i].cap, cw, ARR[i].cheight);     
+          ctx.fillRect(w * i, HEIGHT - h, cw, h);
+        }
+        
+      }
+    }
+  }
+  
+  Render.type = "Dot";
+  var lis = document.querySelectorAll(".music-list li");
+  var visualizer = new MusicVisualizer({
+    size: SIZE, 
+    onended: function(){
+      if($(".play")){
+        $(".play").nextElementSibling ? $(".play").nextElementSibling.click() : lis[0].click();
+      }else{
+        lis[0].click();
+      }
+    },
+    visualizer: Render()
+  });
+  
+  !function(){
+    for(var i = 0; i < lis.length; i++){
+      lis[i].onclick = function(){
+        visualizer.play('./media/' + this.title, isMobile);
+        var play = $("li.play");
+        play && (play.className = "");
+        this.className = "play";
+      }
+    }
+  }()
+  
+  
+  if(isApple){
+    if(isMobile){
+      $("#volume").className = "range";
+    }
+    $("#add").style.display = "none";
+    $("#music-list").style.top = 0;
+    
+    $("#loading-box").style.display = "block";
+    visualizer.addinit(function(){
+      $("#loading").style.display = "none";
+      $("#play").style.display = "block";
+    });
+    $("#play").onclick = function(){
+      $("#loading-box").style.display = "none";
+      visualizer.start();
+    }
+  };
+  
+  lis[0].click();
+  
+  !function(){
+    var types = document.querySelectorAll(".type li");
+    for(var i = 0; i < types.length; i++){
+      types[i].onclick = function(){
+        for(var j = 0; j < types.length; j++){
+          types[j].className = "";
+        }
+        this.className = "selected"
+        Render.type = this.innerHTML;
+      }
+    }
+  }()
+  
+  canvas.onclick = function(){
+    if(Render.type == 'Dot'){
+      for(var i = 0;i < SIZE; i++){
+        ARR.dotMode == "random" ? ARR[i].dx = 0 : ARR[i].dx = ARR[i].dx2;
+      }
+      ARR.dotMode = ARR.dotMode == "static" ? "random" : "static";
+    }
+  }
+  $("#volume").oninput = function(){
+    visualizer.changeVolume(this.value/this.max);
+  }
+  $("#volume").oninput();
+}()
+
+    </script>
+    <div style="display: none">
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?93630333ea7779235e516f80f3dbfcda";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+      </script>
+    </div>
+  </body>
+</html>
