@@ -13,3 +13,4 @@
 <li><a href="https://make-zero.github.io/zero-demo/Tetris/index.html">Tetris(俄罗斯方块</a></li>
 <li><a href="https://make-zero.github.io/zero-demo/music/index.html">音乐播放器(前端，就差api了</a></li>
 <li><a href="https://make-zero.github.io/zero-demo/musicsee/index.html">音乐可视化(分析音频,变成动画</a></li>
+<li><a href="https://make-zero.github.io/zero-demo/sonar.html">声呐系统(单击产生声呐系统，别人的</a></li>
